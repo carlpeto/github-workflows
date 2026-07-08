@@ -382,6 +382,8 @@ jobs:
     container:
       image: ${{ (contains(matrix.swift_version, 'nightly') && 'swiftlang/swift') || 'swift' }}:${{ matrix.swift_version }}-${{ matrix.os_version }}
     steps:
+      - name: OS version
+        run: uname -a
       - name: Swift version
         run: swift --version
       - name: Clang version
